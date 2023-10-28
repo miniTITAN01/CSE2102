@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Quiz Page</title>
+        <style>
+            /* Add CSS styles for page layout */
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .quiz-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .question {
+                margin: 20px 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="quiz-container">
+            <h1>Quiz</h1>
+            <div id="selected-topic">Selected Topic: <span id="topic"></span></div>
+
+            <script>
+                // JavaScript to retrieve the selected topic from the URL parameter
+                const topicElement = document.getElementById("topic");
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const selectedTopic = urlParams.get('topic');
+
+                if (selectedTopic) {
+                    topicElement.textContent = selectedTopic;
+                }
+            </script>
+            <br>
+            
+            <div id="countdown">Time Left: <span id="timer">10:00</span></div>
+    
+            <!-- Questions -->
+            <br>
+            <p>Demo Question Lists: </p>
+            <div class="question" id="question1">
+                <p>Question 1: What is the capital of France?</p>
+                <input type="radio" name="q1" value="paris"> Paris
+                <input type="radio" name="q1" value="london"> London
+                <input type="radio" name="q1" value="berlin"> Berlin
+            </div>
+
+            <div class="question" id="question2">
+              <p>Question 2:</p>
+              <input type="radio" name="q2" value="option1"> Option 1
+              <input type="radio" name="q2" value="option2"> Option 2
+              <input type="radio" name="q2" value="option3"> Option 3
+            </div>
+
+            <div>
+              <p>Question 3: </p>
+              <input type="text" id="answer" name="question3" placeholder="Type your answer here" required>
+            </div>
+    
+            <!-- Repeat the above question div for other questions -->
+            <!-- Question 2, Question 3, ... -->
+            <br>
+            <button id="submit">Submit</button>
+        </div>
+    
+        <script>
+            // JavaScript for countdown timer (10 minutes)
+            const countdown = new Date().getTime() + 10 * 60 * 1000;
+            const timerElement = document.getElementById('timer');
+    
+            function updateTimer() {
+                const now = new Date().getTime();
+                const timeRemaining = countdown - now;
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                timerElement.textContent = `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
+                if (timeRemaining <= 0) {
+                    timerElement.textContent = "Time's up!";
+                    // Implement any action when time is up
+                }
+            }
+    
+            setInterval(updateTimer, 1000);
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- 
+NOTES:
+<p>Name: <input type="text" id="name" placeholder="Enter your name"></p>
+<p>Student ID: <input type="text" id="student-id" placeholder="Enter your student ID"></p>
+
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>TEST</title>
+  </head>
+  
+  <body>
+    <h1>TEST</h1>
+    
+  </body>
+</html> -->
