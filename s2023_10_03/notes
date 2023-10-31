@@ -1,0 +1,25 @@
+The three pieces of code you provided use different approaches to maintain a counter and respond to HTTP GET requests. 
+Here's how each of them works:
+
+Instance Variable Approach:
+    In this code, you create an instance variable self.i within the do_GET method.
+    This means that each instance of the Handler class will have its own separate i variable.
+    Every time a new request is made to the server, a new instance of Handler is created, and self.i starts from 0 for each request. 
+    So, the counter resets to 0 with each new request.
+Class Variable Approach:
+    In this code, you use a class variable Handler.i to maintain the counter. 
+    Class variables are shared among all instances of a class, 
+    so every instance of the Handler class will access and modify the same Handler.i. 
+    This means that the counter is shared among all requests, and it increments across all requests. 
+    The counter does not reset with each new request.
+Global Variable Approach:
+    In this code, you use a global variable i to maintain the counter. 
+    The variable i is declared outside of the Handler class and is accessible from within the do_GET method using the global keyword. 
+    This approach uses a single global variable to maintain the counter across all requests. 
+    Like the class variable approach, the counter does not reset with each new request.
+
+So, to summarize:
+
+Instance Variable Approach: Each request has its own independent counter.
+Class Variable Approach: All requests share the same counter that increments across all requests.
+Global Variable Approach: All requests share the same global counter that increments across all requests.
