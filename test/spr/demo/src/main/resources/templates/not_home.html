@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+      <head>
+        <title>Topic Selection</title>
+      </head>
+    <body>
+      
+      <h1>Topic Selection</h1>
+      <form id="topic-form">
+          <label for="topic">Select a Topic:</label>
+          <select id="topic" name="topic">
+              <option value="Math">Math</option>
+              <option value="Science">Science</option>
+              <option value="History">History</option>
+              <option value="Programming">Programming</option>
+          </select>
+      </form>
+      <br>
+  
+      <a href="/proxy/8099/test" id="start-quiz-link">
+        <button type="button" id="show-selected-topic"> Start Quiz </button>
+      </a>
+  
+      <script>
+          // JavaScript to capture and pass the selected topic as a URL parameter
+          const showSelectedTopicButton = document.getElementById("show-selected-topic");
+          const topicSelect = document.getElementById("topic");
+          const startQuizLink = document.getElementById("start-quiz-link");
+
+  
+          showSelectedTopicButton.addEventListener("click", function () {
+              const selectedTopic = topicSelect.options[topicSelect.selectedIndex].value;
+              const imageUrl = topicImages[selectedTopic] || "defaultUconn.png"; // Default image if no match
+              startQuizLink.href = `/proxy/8099/test?topic=${selectedTopic}`;
+
+          });
+      </script>
+  </body>
+</html>
+
+
+
+
+<!-- 
+   Wrap the button within an anchor element with the desired link 
+  <a href="/proxy/8099/test">
+    <button type="button"> Start Quiz </button>
+</a>
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Question Sets</title>
+  </head>
+  
+  <body>
+    <h1>Not Home - Welcome</h1>
+    <h1> Medium </h1>
+    <h1> Easy </h1>
+    <a href="/proxy/8093/test">TEST</a>
+  </body>
+</html> 
+
+NOTES:
+<input type="submit" value="Start Quiz"> 
+-->
