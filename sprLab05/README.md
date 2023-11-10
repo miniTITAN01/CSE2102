@@ -50,7 +50,7 @@ chmod -R a+rwx demo
 ## **Issues** 
 If you get port errors, go into [application.properties](https://github.com/miniTITAN01/CSE2102/spr/demo/src/main/resources/application.properties) and point to a port number. 
 ```
-server.port = 8089 
+server.port = 8092
 ```
 
 
