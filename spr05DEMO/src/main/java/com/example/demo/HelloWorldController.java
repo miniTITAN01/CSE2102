@@ -3,6 +3,7 @@ package com.example.demo;
 import java.util.UUID;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +18,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.example.demo.model.Question;
+import com.example.demo.model.QuestionBank;
+import com.example.demo.model.Answer;
+
 @RestController
 public class HelloWorldController {
 
 	private final AtomicLong counter = new AtomicLong();
+	private static int basic_counter = 0;
 
 	@GetMapping("/hello")
 	public HelloWorld hello(@RequestParam(value = "content", defaultValue = "GET endpoint") String content) {
@@ -32,6 +38,12 @@ public class HelloWorldController {
 		UUID uuid = UUID.randomUUID();
 		return new MyUuid(uuid);
 	}
+
+	@GetMapping("/question")
+	public Question getQuestion(){
+		return new QuestionBank().getQuestion(basic_counter++);
+	}
+
 
 	@PostMapping(path="/password_len")
   	@ResponseStatus(HttpStatus.OK)
