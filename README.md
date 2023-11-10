@@ -1,5 +1,5 @@
 # CSE2102
 
-My group includes: 
+Welcome to my repo: 
   - Trang Reagan
 
