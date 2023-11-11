@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.model.LoginCredentials;
 import com.example.demo.service.PasswordQualityService;
 import com.example.demo.service.EmailValidationService;
+import com.example.demo.model.QuizQuestion;
+import com.example.demo.service.QuizService;
+
+import java.util.List; 
 
 
 
@@ -21,6 +25,7 @@ public class HomeController {
 
   private final EmailValidationService emailValidationService = new EmailValidationService();
   private final PasswordQualityService passwordQualityService = new PasswordQualityService();
+  private final QuizService quizService = new QuizService();
 
   @GetMapping("/")
     public String home(Model model) {
@@ -52,10 +57,20 @@ public class HomeController {
     return "not_home";
   }
 
+  @GetMapping("/getQuestions")
+    @ResponseBody
+    public List<QuizQuestion> getQuizQuestions(@RequestParam String topic) {
+        return quizService.getQuestionsForTopic(topic);
+    }
+
   @GetMapping("/test")
-  public String testPage() {
-    return "test";
-  }
+    public String testPage(@RequestParam(required = false) String topic, Model model) {
+        if (topic != null && !topic.isEmpty()) {
+            List<QuizQuestion> questions = quizService.getQuestionsForTopic(topic);
+            model.addAttribute("questions", questions);
+        }
+        return "test";
+    }
 
 
 

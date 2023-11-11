@@ -21,7 +21,7 @@
 
     <body>
         <div class="quiz-container">
-            <h1>Quiz</h1>
+            <h2>Try your best and good luck !</h2>
             <div id="selected-topic">Selected Topic: <span id="topic"></span></div>
 
             <script>
@@ -41,31 +41,23 @@
     
             <!-- Questions -->
             <br>
-            <p>Demo Question Lists: </p>
-            <div class="question" id="question1">
-                <p>Question 1: What is the capital of France?</p>
-                <input type="radio" name="q1" value="paris"> Paris
-                <input type="radio" name="q1" value="london"> London
-                <input type="radio" name="q1" value="berlin"> Berlin
-            </div>
-
-            <div class="question" id="question2">
-              <p>Question 2:</p>
-              <input type="radio" name="q2" value="option1"> Option 1
-              <input type="radio" name="q2" value="option2"> Option 2
-              <input type="radio" name="q2" value="option3"> Option 3
-            </div>
-
-            <div>
-              <p>Question 3: </p>
-              <input type="text" id="answer" name="question3" placeholder="Type your answer here" required>
-            </div>
+            <div th:if="${questions != null}" class="quiz-container">
+                <h1>Quiz</h1>
     
-            <!-- Repeat the above question div for other questions -->
-            <!-- Question 2, Question 3, ... -->
-            <br>
-            <button id="submit">Submit</button>
-        </div>
+                <div th:each="question, iterStat : ${questions}" class="container custom mt-sm-5 my-1">
+                    <div class="question ml-sm-5 pl-sm-5 pt-2">
+                        <div th:text="${question.getQuestion()}" class="py-2 h5"><b>Question [[${iterStat.index}]]</b></div>
+                        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                            <label th:each="choice : ${question.getChoices()}" class="options">
+                                [[${choice}]] <input type="radio" th:name="${'answer' + iterStat.index}" th:value="${choice}">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    
+                <button id="submit">Submit</button>
+            </div>
     
         <script>
             // JavaScript for countdown timer (10 minutes)
@@ -92,20 +84,3 @@
 
 
 
-<!-- 
-NOTES:
-<p>Name: <input type="text" id="name" placeholder="Enter your name"></p>
-<p>Student ID: <input type="text" id="student-id" placeholder="Enter your student ID"></p>
-
-  <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>TEST</title>
-  </head>
-  
-  <body>
-    <h1>TEST</h1>
-    
-  </body>
-</html> -->

@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import static org.hamcrest.Matchers.containsString;
+import java.util.Arrays;
+
 
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -18,13 +20,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
-
 import org.springframework.boot.test.mock.mockito.MockBean;
+
 import com.example.demo.service.EmailValidationService;
 import com.example.demo.service.PasswordQualityService;
+import com.example.demo.service.QuizService;
+import com.example.demo.model.QuizQuestion;
+
+
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 @WebMvcTest(HomeController.class)   // <1>
 public class HomeControllerTest {
@@ -38,6 +45,9 @@ public class HomeControllerTest {
 
     @MockBean
     private PasswordQualityService passwordQualityService;
+
+  @MockBean
+    private QuizService quizService;
 
 
   @Test
@@ -89,18 +99,31 @@ public class HomeControllerTest {
       .andExpect(status().isOk())
       .andExpect(view().name("test"))
       .andExpect(content().string(
-            containsString("Demo Question Lists:")));
+            containsString("Try your best and good luck !")));
     }
 
 
   @Test
-  public void testPage() throws Exception {
-    mockMvc.perform(get("/test"))   
-      .andExpect(status().isOk()) 
-      .andExpect(view().name("test"))
-      .andExpect(content().string(       
-          containsString("Quiz Page")));
-  }
+    public void testTestPageWithTopic() throws Exception {
+        when(quizService.getQuestionsForTopic("Math"))
+            .thenReturn(Arrays.asList(new QuizQuestion("Sample Question 1", new String[]{"Option1", "Option2"}, "Option1"),
+                                      new QuizQuestion("Sample Question 2", new String[]{"Option3", "Option4"}, "Option4")));
+
+        mockMvc.perform(get("/test").param("topic", "Math"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("test"))
+            .andExpect(model().attributeExists("questions"));
+
+    }
+
+    @Test
+    public void testTestPageWithoutTopic() throws Exception {
+        mockMvc.perform(get("/test"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("test"))
+                .andExpect(model().attributeDoesNotExist("questions"))
+                .andExpect(content().string(containsString("Quiz Page")));
+    }
 
 
 }
