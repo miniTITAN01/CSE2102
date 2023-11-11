@@ -57,11 +57,6 @@ public class HomeController {
     return "not_home";
   }
 
-  @GetMapping("/getQuestions")
-    @ResponseBody
-    public List<QuizQuestion> getQuizQuestions(@RequestParam String topic) {
-        return quizService.getQuestionsForTopic(topic);
-    }
 
   @GetMapping("/test")
     public String testPage(@RequestParam(required = false) String topic, Model model) {
