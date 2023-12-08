@@ -1,6 +1,7 @@
 # Final Project Instructions 
-![My Image](screenShot.png)
 
+![My Image](screenShot.png)
+<img src="screenShot.png" alt="My Image" width="300">
 
 ## **Prerequisites**
 > [!IMPORTANT]
