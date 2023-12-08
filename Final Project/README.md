@@ -1,5 +1,5 @@
 # Final Project Instructions 
-![My Image](FinalProject/screenShot.png)
+![My Image](/screenShot.png)
 
 
 ## **Prerequisites**
