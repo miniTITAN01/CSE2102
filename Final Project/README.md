@@ -1,5 +1,5 @@
 # Final Project Instructions 
-![My Image](cse2102/FinalProject/screenShot.png)
+![My Image](FinalProject/screenShot.png)
 
 
 ## **Prerequisites**
