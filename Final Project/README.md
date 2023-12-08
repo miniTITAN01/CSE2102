@@ -46,8 +46,14 @@ cd path/to/your/react/project
 # Install project dependencies (if not done already)
 npm install
 
+# Install react-router-dom dependency
+npm install react-router-dom
+
 # Build the React project
 npm run build
+
+# Install testing library to run tests
+npm install --save-dev @testing-library/react @testing-library/jest-dom
 ```
 
 3. Run our React project 
