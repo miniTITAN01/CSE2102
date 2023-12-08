@@ -4,15 +4,11 @@
 > [!IMPORTANT]
 > Please follow prerequisites.
 
-Install **Java17** 
+Setup **React** 
 ```bash 
-sudo dnf install java-1.8.0-openjdk-devel
-sudo update-alternatives --config java 
-```
-
-Install **Maven**
-```bash 
-sudo dnf install maven
+sudo dnf install nodejs
+npm add react --save
+npm add react-scripts –save
  ```
 
 ## **Clone the Repo**
