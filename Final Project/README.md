@@ -1,6 +1,9 @@
 # Final Project Instructions 
 
-<img src="screenShot.png" alt="My Image" width="800">
+<div style="text-align:center">
+  <img src="screenShot.png" alt="My Image" width="600">
+</div>
+
 
 ## **Prerequisites**
 > [!IMPORTANT]
