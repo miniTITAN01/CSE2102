@@ -1,0 +1,78 @@
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9; /* A sophisticated light grey background */
+    color: #333; /* Dark text for contrast */
+    font-family: 'Arial', sans-serif; /* A common, clean font */
+
+    background-size: contain; /* Ensure the entire image is visible */
+   
+  }
+  
+  .main-buttons {
+    position: relative;
+    z-index: 2;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between buttons */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: FadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s; /* Start the animation after a short delay */
+  }
+
+  @keyframes BackgroundGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes FadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .button {
+    
+
+    padding: 30px 80px; /* Increase padding to make the button larger */
+    border: none;
+    border-radius: 20px; /* Larger border-radius for rounded corners */
+    background: linear-gradient(145deg, #007bff, #0056b3); /* Subtle gradient background */
+    color: white;
+    font-size: 20px; /* Slightly larger text */
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow on hover for a "lifted" effect */
+    background: linear-gradient(145deg, #0056b3, #004494); /* Darker gradient on hover */
+  }
+  
+  .button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Smaller shadow for a "pressed" effect */
+  }
+  
+  
+  .centered-image {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Image is a block-level element */
+    margin: 0 auto; /* Centers the image horizontally */
+    position: absolute; /* Positions the image absolutely within the .main-container */
+    top: 50%; /* Positions the top edge of the image in the center vertically */
+    left: 50%; /* Positions the left edge of the image in the center horizontally */
+    transform: translate(-50%, -50%); /* Offsets the image by half its width and height to truly center it */
+    z-index: 1; /* Ensures the image is behind other content if necessary */
+  }

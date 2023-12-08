@@ -1,0 +1,93 @@
+/* Reset default padding and margin */
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Ensure the full height is used */
+    height: 100%;
+    /* Set a default box-sizing */
+    box-sizing: border-box;
+  }
+  
+  /* Apply box-sizing to all elements for consistency */
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+/* Ensure that the first element inside .contact-container doesn't have a top margin */
+.contact-container > *:first-child {
+    margin-top: 0;
+  }
+  
+  /* And the last element doesn't have a bottom margin */
+  .contact-container > *:last-child {
+    margin-bottom: 0;
+  }
+
+.contact-container h1 {
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    
+}
+
+.contact-container .contact-info p,
+.contact-container .contact-info a { /* This targets both paragraphs and links */
+    color: #FFFFFF !important; /* Forces the text color to be white */
+}
+
+
+.contact-detail {
+    color: white; /* This will change the color of the text to white */
+}
+
+.contact-link {
+    color: white; /* This will change the color of the links to white */
+    text-decoration: none; /* Optional: Removes underline from links */
+}
+
+.contact-link:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}

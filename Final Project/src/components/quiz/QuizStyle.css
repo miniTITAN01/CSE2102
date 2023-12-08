@@ -1,0 +1,120 @@
+/* General styles for the quiz and result page */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    color: #161616;
+}
+
+/* Style for each question and options */
+.quiz-container {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(219, 68, 214, 0.9);
+    background: linear-gradient(to right, #ffffff, #f0f0f0); /* Gradient background for a glossy look */
+    border: 2px solid #aa00b3; /* Border to give a button-like appearance */
+    border-radius: 15px; /* Rounded corners for a modern look */
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center; /* Center the content */
+}
+
+.question-text {
+    font-size: 1.6rem; /* Increased font size */
+    font-weight: bold; /* Added font weight for better readability */
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    padding: 15px 20px;
+    border: none; /* Removed the border */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1.2rem; /* Adjusted button font size */
+    font-family: 'Arial', sans-serif; /* Specified font family */
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+}
+
+.option:hover {
+    background-color: #af45f0; /* Darker blue on hover */
+}
+
+/* Add this style to your CSS to define the button's selected style */
+.option.selected {
+    background-image: linear-gradient(to bottom, #8c00a8, #af45f0);
+    border: none;
+}
+
+.timer {
+    font-size: 1.2rem;
+    margin-top: 15px; /* Added margin-top for spacing */
+    color: 161616; /* Dark blue color for text */
+    font-weight: bold;
+}
+
+/* Button styles */
+
+/* Next and Reset buttons */
+.navigation-buttons button {
+    padding: 8px 15px;
+    border:#131212;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1.0rem; /* Adjusted button font size */
+    font-family: 'Arial', sans-serif; /* Specified font family */
+    background-color: #fff; /* Blue background color */
+    color: #131212; /* text color */
+
+    border: 2px solid #007bff; /* Blue border for the "Try Again" button */
+    
+}
+
+.navigation-buttons button:hover {
+    background-color: #f286f7; 
+}
+
+/* Add this style to your CSS to define the button's selected style */
+.navigation-buttons button.selected {
+    background-image: linear-gradient(to bottom, #c0c1d8, #cbc9df);
+    border: none;
+}
+
+.navigation-buttons button:first-child {
+    margin-right: 10px; /* Adjust the margin as needed */
+    margin-top: 20px;
+}
+
+.result-details .option {
+    margin-bottom: 20px; /* Add space between boxes */
+    padding: 15px; /* Padding inside boxes */
+    border-radius: 8px; /* Rounded corners for the boxes */
+    
+    border: 1px solid #ddd; /* Border for the boxes */
+  }
+  
+  .result-details .option p {
+    font-size: 1.0rem; /* Smaller font size within boxes */
+  }
