@@ -1,4 +1,6 @@
 # Final Project Instructions 
+![My Image](cse2102/FinalProject/screenShot.png)
+
 
 ## **Prerequisites**
 > [!IMPORTANT]
