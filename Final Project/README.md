@@ -54,6 +54,7 @@ npm run build
 
 # Install testing library to run tests
 npm install --save-dev @testing-library/react @testing-library/jest-dom
+npm install --save @testing-library/react jest
 ```
 
 3. Run our React project 
