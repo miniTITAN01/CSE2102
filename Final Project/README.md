@@ -1,7 +1,7 @@
 # Final Project Instructions 
 
 <div style="text-align:center">
-  <img src="screenShot.png" alt="My Image" width="600">
+  <img src="myAppDemo.png" alt="My Image" width="600">
 </div>
 
 
